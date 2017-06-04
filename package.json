@@ -1,0 +1,19 @@
+{
+  "name": "cake-thief",
+  "version": "0.0.1",
+  "description": "The cake thief attempt at a solution",
+  "main": "./app.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:erikmswan/cake-thief.git"
+  },
+  "scripts": {
+    "start": "webpack && webpack-dev-server --inline --colors --content-base dist/client/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.12.2",
+  },
+  "author": "Erik Swan",
+  "license": "MIT"
+}
