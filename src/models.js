@@ -9,9 +9,9 @@ import type { DataModel } from './types';
 const cakes: DataModel = {
     capacity : 20,
     cakes    : [
-        [7, 60],
-        [3, 90],
-        [2, 15]
+        [25, 60],
+        [23, 90],
+        [100, 15]
     ]
 };
 

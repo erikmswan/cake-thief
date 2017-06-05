@@ -2,4 +2,10 @@
 
 This is my attempt at solving the cake thief problem.
 
-https://www.interviewcake.com/question/python/cake-thief?utm_source=weekly_email&utm_campaign=weekly_email&utm_medium=email&__s=crqsztzrspdnxfcyxvut
+https://www.interviewcake.com/question/python/cake-thief
+
+Use `npm run start` to build and run the app.
+
+Use `npm run build` to build it, and `npm run watch` to keep watching that file for changes.
+
+Use `npm run exe` to run the app file in `dist`.

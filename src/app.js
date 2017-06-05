@@ -16,8 +16,9 @@ import _                    from 'lodash';
 
 function max_duffel_bag_value(cakeData: DataModel): ResultModel {
 
-    const { cakes, capacity } = cakeData;
-    const newCakeData  = _.cloneDeep(cakeData);
+    const { cakes,
+            capacity } = cakeData;
+    const newCakeData  = _.cloneDeep(cakes);
 
     // handle the case where we have a cake with 0 weight or 0 value
     let zeroWeightItem = [];
@@ -25,11 +26,11 @@ function max_duffel_bag_value(cakeData: DataModel): ResultModel {
     let canCarryAtLeastOneThing = false;
 
     _.each(newCakeData, cake => {
-
         const weight = cake[0];
 
         // if the weight is less than capacity, then we can carry at least
         // one thing
+        // console.log(weight, capacity);
         if (weight < capacity) {
             canCarryAtLeastOneThing = true;
         }
@@ -70,6 +71,14 @@ function max_duffel_bag_value(cakeData: DataModel): ResultModel {
 
 
 
+    // base case so we return the expected type
+    return {
+        cakes             : [],
+        totalValue        : 0,
+        numberOfCakes     : 0,
+        numberOfCakeTypes : 0,
+        capacity
+    };
 }
 
-max_duffel_bag_value(cakes);
+console.log(max_duffel_bag_value(cakes));
