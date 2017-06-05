@@ -1,13 +1,5 @@
 'use strict';
 
-var _lodash = require('lodash');
+var test = ['hi'];
 
-var _lodash2 = _interopRequireDefault(_lodash);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var strings = ['this', 'worked!'];
-
-_lodash2.default.each(strings, function (string) {
-  return console.log(string);
-});
+test();

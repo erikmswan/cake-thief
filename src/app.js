@@ -1,6 +1,4 @@
 
-import _ from 'lodash';
+// @flow
 
-const strings = ['this', 'worked!'];
-
-_.each(strings, string => console.log(string));
+console.log('Hello world!');

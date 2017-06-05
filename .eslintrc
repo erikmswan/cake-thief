@@ -6,7 +6,8 @@
     },
     "globals": {},
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:flowtype/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -14,6 +15,9 @@
         },
         "sourceType": "module"
     },
+    "plugins": [
+        "flowtype"
+    ],
     "rules": {
         "no-var": [
             "error"
