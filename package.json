@@ -1,19 +1,29 @@
 {
-  "name": "cake-thief",
+  "name": "cakethief",
   "version": "0.0.1",
-  "description": "The cake thief attempt at a solution",
-  "main": "./app.js",
+  "description": "My attempt at solving the cake thief problemm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel src --out-file dist/app.js",
+    "start": "npm run build && node dist/app.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:erikmswan/cake-thief.git"
-  },
-  "scripts": {
-    "start": "webpack && webpack-dev-server --inline --colors --content-base dist/client/"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^3.12.2",
+    "url": "git+https://github.com/erikmswan/cake-thief.git"
   },
   "author": "Erik Swan",
-  "license": "MIT"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erikmswan/cake-thief/issues"
+  },
+  "homepage": "https://github.com/erikmswan/cake-thief#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^3.19.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
