@@ -1,6 +1,6 @@
 # The cake thief problem
 
-This is my attempt at solving the cake thief problem.
+This is my attempt at solving the cake thief problem. (UNFINISHED!)
 
 https://www.interviewcake.com/question/python/cake-thief
 
