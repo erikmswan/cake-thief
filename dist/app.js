@@ -21,53 +21,45 @@ function max_duffel_bag_value(cakeData) {
     var cakes = cakeData.cakes,
         capacity = cakeData.capacity;
 
-    var newCakeData = _lodash2.default.cloneDeep(cakes);
+    // clone the data so we can freely mutate it,
+    // and filter out cakes with 0 value
 
-    // handle the case where we have a cake with 0 weight or 0 value
-    var zeroWeightItem = [];
-    // handle the case where nothing can fit in the capacity;
-    var canCarryAtLeastOneThing = false;
-
-    _lodash2.default.each(newCakeData, function (cake) {
-        var weight = cake[0];
-
-        // if the weight is less than capacity, then we can carry at least
-        // one thing
-        // console.log(weight, capacity);
-        if (weight < capacity) {
-            canCarryAtLeastOneThing = true;
-        }
-
-        // if 0 weight, push this item to the zeroWeightItem array
-        if (weight === 0) {
-            zeroWeightItem.push(cake);
-        }
+    var newCakeData = _lodash2.default.filter(cakes, function (cake) {
+        return cake[1] > 0;
     });
 
-    // if we can't carry anything, return nothing
-    if (!canCarryAtLeastOneThing) {
-        return {
-            cakes: [],
-            totalValue: 0,
-            numberOfCakes: 0,
-            numberOfCakeTypes: 0,
-            capacity: capacity
-        };
-    }
+    // it's based on a value ratio of value to weight. The most valuable stuff
+    // gets put in first. Then once we can't put in anymore, we go down the list
+    // of stuff with the highest value ratio whose weight is less than the
+    // remaining capacity. We keep doing this until we run out of cakes.
 
-    // if we found a zero weight item, we just duplicate it infinite times for
-    // infinite value.
-    if (zeroWeightItem.length > 0) {
-        return {
-            cakes: zeroWeightItem,
-            totalValue: Infinity,
-            numberOfCakes: Infinity,
-            numberOfCakeTypes: 1,
-            capacity: capacity
-        };
-    }
+    newCakeData.sort(function (cakeA, cakeB) {
+        // value / weight
+        var a = cakeA[1] / cakeA[0];
+        var b = cakeB[1] / cakeB[0];
 
-    // and now, the actual logic
+        return a < b;
+    });
+
+    console.log(newCakeData);
+
+    // Now we do the cascade to fill our bag.
+
+
+    // Handle the case we have 0 weight and some value cakes
+    // const zeroWeightItems = _.filter(newCakeData, cake => {
+    //     return cake[1] / cake[0] === Infinity;
+    // });
+    //
+    // if (zeroWeightItems.length > 0) {
+    //     return {
+    //         cakes             : zeroWeightItems,
+    //         totalValue        : Infinity,
+    //         numberOfCakes     : Infinity,
+    //         numberOfCakeTypes : zeroWeightItems.length,
+    //         capacity
+    //     };
+    // }
 
 
     // base case so we return the expected type

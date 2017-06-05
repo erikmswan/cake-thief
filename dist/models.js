@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var cakes = {
     capacity: 20,
-    cakes: [[25, 60], [23, 90], [100, 15]]
+    cakes: [[2, 99], [50, 50], [4, 95], [65, 20], [1, 100], [3, 101]]
 };
 
 exports.default = cakes;

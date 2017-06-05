@@ -18,56 +18,49 @@ function max_duffel_bag_value(cakeData: DataModel): ResultModel {
 
     const { cakes,
             capacity } = cakeData;
-    const newCakeData  = _.cloneDeep(cakes);
 
-    // handle the case where we have a cake with 0 weight or 0 value
-    let zeroWeightItem = [];
-    // handle the case where nothing can fit in the capacity;
-    let canCarryAtLeastOneThing = false;
+    // clone the data so we can freely mutate it,
+    // and filter out cakes with 0 value
+    const newCakeData  = _.filter(cakes, cake => cake[1] > 0);
 
-    _.each(newCakeData, cake => {
-        const weight = cake[0];
 
-        // if the weight is less than capacity, then we can carry at least
-        // one thing
-        // console.log(weight, capacity);
-        if (weight < capacity) {
-            canCarryAtLeastOneThing = true;
-        }
+    // it's based on a value ratio of value to weight. The most valuable stuff
+    // gets put in first. Then once we can't put in anymore, we go down the list
+    // of stuff with the highest value ratio whose weight is less than the
+    // remaining capacity. We keep doing this until we run out of cakes.
 
-        // if 0 weight, push this item to the zeroWeightItem array
-        if (weight === 0) {
-            zeroWeightItem.push(cake);
-        }
+    newCakeData.sort((cakeA, cakeB) => {
+        // value / weight
+        const a = cakeA[1] / cakeA[0];
+        const b = cakeB[1] / cakeB[0];
 
+        return a < b;
     });
 
-    // if we can't carry anything, return nothing
-    if (!canCarryAtLeastOneThing) {
-        return {
-            cakes             : [],
-            totalValue        : 0,
-            numberOfCakes     : 0,
-            numberOfCakeTypes : 0,
-            capacity
-        };
-    }
+    console.log(newCakeData);
 
-    // if we found a zero weight item, we just duplicate it infinite times for
-    // infinite value.
-    if (zeroWeightItem.length > 0) {
-        return {
-            cakes             : zeroWeightItem,
-            totalValue        : Infinity,
-            numberOfCakes     : Infinity,
-            numberOfCakeTypes : 1,
-            capacity
-        };
-    }
+    // Now we do the cascade to fill our bag.
+
+
+    // Handle the case we have 0 weight and some value cakes
+    // const zeroWeightItems = _.filter(newCakeData, cake => {
+    //     return cake[1] / cake[0] === Infinity;
+    // });
+    //
+    // if (zeroWeightItems.length > 0) {
+    //     return {
+    //         cakes             : zeroWeightItems,
+    //         totalValue        : Infinity,
+    //         numberOfCakes     : Infinity,
+    //         numberOfCakeTypes : zeroWeightItems.length,
+    //         capacity
+    //     };
+    // }
 
 
 
-    // and now, the actual logic
+
+
 
 
 
