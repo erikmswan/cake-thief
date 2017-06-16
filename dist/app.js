@@ -14,8 +14,6 @@ var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// our main function
-
 // given a capacity and a number of categories of items with properties of
 // weight and value, and also knowing that one can duplicate items from each
 // category without limit,
@@ -26,7 +24,8 @@ function max_duffel_bag_value(cakeData) {
         capacity = cakeData.capacity;
 
     // clone the data so we can freely mutate it,
-    // and filter out cakes with 0 value, as we will never use them
+    // and filter out cakes with 0 value, as we will never put them in the bag
+    // but we do want to save them to return
 
     var valuableCakes = _lodash2.default.filter(cakes, function (cake) {
         return cake.value > 0;
@@ -55,21 +54,20 @@ function max_duffel_bag_value(cakeData) {
         };
     }
 
-    // filter out cakes with 0 weight as we've already handled that case
-    var weightedValuableCakes = _lodash2.default.filter(valuableCakes, function (cake) {
-        return cake.weight > 0;
-    });
     // the big idea:
     // it's based on a value ratio of value to weight. The most valuable stuff
     // gets put in first. Then once we can't put in anymore, we go down the list
     // of stuff with the highest value ratio whose weight is less than the
     // remaining capacity. We keep doing this until we run out of cakes.
 
+    // filter out cakes with 0 weight as we've already handled that case
+    var weightedValuableCakes = _lodash2.default.filter(valuableCakes, function (cake) {
+        return cake.weight > 0;
+    });
+
     weightedValuableCakes.sort(function (cakeA, cakeB) {
-        // value / weight
         var a = cakeA.value / cakeA.weight;
         var b = cakeB.value / cakeB.weight;
-
         return a < b;
     });
 
@@ -151,6 +149,7 @@ _lodash2.default.each(result.bag, function (category, index) {
     _lodash2.default.each(category, function (cake) {
         console.log(_util2.default.inspect(cake, { colors: true }));
     });
+    console.log('\n');
 });
 delete result.bag;
-console.log('\n', result);
+console.log(result);

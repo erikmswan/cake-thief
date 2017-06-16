@@ -135,6 +135,7 @@ _.each(result.bag, (category, index) => {
     _.each(category, cake => {
         console.log( util.inspect(cake, { colors: true }) );
     });
+    console.log('\n');
 });
 delete result.bag;
-console.log(`\n`, result);
+console.log(result);
