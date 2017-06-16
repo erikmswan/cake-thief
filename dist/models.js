@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var cakes = {
     capacity: 30,
-    cakes: [{ weight: 5, value: 500 }, { weight: 2, value: 50 }, { weight: 8, value: 1000 }]
+    cakes: [{ weight: 5, value: 500 }, { weight: 2, value: 50 }, { weight: 8, value: 1000 }, { weight: 20, value: 0 }]
 };
 
 // input with edge case of 0 weight cakes

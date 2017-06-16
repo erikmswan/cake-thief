@@ -128,8 +128,11 @@ function fill_the_bag(cakes: Cakes, capacity: number): BagResult {
 const result = max_duffel_bag_value(cakes);
 
 // print the results
+console.log('\nThe input:\n\n', cakes.cakes);
+console.log(`\nTotal capacity: ${cakes.capacity}\n`);
+console.log(`\nThe output:\n`);
 _.each(result.bag, (category, index) => {
-    console.log(`Cake type index: ${index}\n`);
+    console.log(`Cake type index: ${index}`);
     _.each(category, cake => {
         console.log( util.inspect(cake, { colors: true }) );
     });

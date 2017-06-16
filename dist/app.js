@@ -142,8 +142,11 @@ function fill_the_bag(cakes, capacity) {
 var result = max_duffel_bag_value(_models2.default);
 
 // print the results
+console.log('\nThe input:\n\n', _models2.default.cakes);
+console.log('\nTotal capacity: ' + _models2.default.capacity + '\n');
+console.log('\nThe output:\n');
 _lodash2.default.each(result.bag, function (category, index) {
-    console.log('Cake type index: ' + index + '\n');
+    console.log('Cake type index: ' + index);
     _lodash2.default.each(category, function (cake) {
         console.log(_util2.default.inspect(cake, { colors: true }));
     });
