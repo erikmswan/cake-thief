@@ -8,6 +8,8 @@ https://www.interviewcake.com/question/python/cake-thief
 
 I used node v8.0.0 when programming this, but I'm sure earlier versions would work fine. You'll need to have some version of node installed globally in order for it to work. If you don't, I recommend using [node version manager](https://github.com/creationix/nvm) for managing your node versions or [docker](https://www.docker.com/) if you prefer containerized environments.
 
+To install:
+
 - `git clone git@github.com:erikmswan/cake-thief.git`
 - `npm i`
 - `npm run start`
