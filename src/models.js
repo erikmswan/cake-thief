@@ -1,20 +1,21 @@
 
 // @flow
 
-import type { DataModel } from './types';
+import type { Input } from './types';
 
 
 // testData
 
-const cakes: DataModel = {
+const cakes: Input = {
     capacity : 20,
     cakes    : [
-        [2, 99],
-        [50, 50],
-        [4, 95],
-        [65, 20],
-        [1, 100],
-        [3, 101]
+        { weight: 2, value: 99 },
+        { weight: 50, value: 50 },
+        { weight: 4, value: 95 },
+        { weight: 65, value: 20 },
+        { weight: 1, value: 100 },
+        { weight: 20, value: 0 },
+        { weight: 20, value: 0 }
     ]
 };
 

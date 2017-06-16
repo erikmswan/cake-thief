@@ -1,28 +1,32 @@
 
 // @flow
 
-// TYPES
 
 
-// Data models
+// Input
 
-type Cake  = [number, number];
-type Cakes = Array<Cake>;
+export type Cake  = { weight: number, value: number };
+export type Cakes = Array<Cake>;
 
-type DataModel = {
+export type Input = {
     capacity : number,
     cakes    : Cakes
 };
 
-type ResultModel = {
-    cakes             : Cakes,
+
+
+// Output
+
+export type ResultCakes = Array<?Cakes>;
+
+export type BagResult = {
+    bag               : ResultCakes,
     totalValue        : number,
     numberOfCakes     : number,
-    numberOfCakeTypes : number,
-    capacity          : number
+    remainingCapacity : number
 };
 
-export type {
-    DataModel,
-    ResultModel
+export type FullResult = BagResult & {
+    totalCapacity     : number,
+    numberOfCakeTypes : number
 };
