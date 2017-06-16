@@ -9,14 +9,10 @@ import type { Input } from './types';
 const cakes: Input = {
     capacity : 30,
     cakes    : [
-        { weight: 2, value: 60 },
-        { weight: 9, value: 50 },
-        { weight: 4, value: 40 },
-        { weight: 8, value: 20 },
-        { weight: 3, value: 70 },
-        { weight: 20, value: 0 },
-        { weight: 15, value: 0 },
-        { weight: 13, value: 0 }
+        { weight: 5, value: 500 },
+        { weight: 2, value: 50 },
+        { weight: 8, value: 1000 },
+        { weight: 20, value: 0 }
     ]
 };
 
