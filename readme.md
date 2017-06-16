@@ -8,7 +8,9 @@ https://www.interviewcake.com/question/python/cake-thief
 
 I used node v8.0.0 when programming this, but I'm sure earlier versions would work fine. You'll need to have some version of node installed globally in order for it to work. If you don't, I recommend using [node version manager](https://github.com/creationix/nvm) for managing your node versions or [docker](https://www.docker.com/) if you prefer containerized environments.
 
-- Use `npm run start` to build and run the app. This is all you really need to do.
+- `git clone git@github.com:erikmswan/cake-thief.git`
+- `npm i`
+- `npm run start`
 
 If you want to just build the app for some reason, use `npm run build` (or `npm run watch` to keep watching for changes). If you want to just run the app without building it, use `npm run exe`.
 
