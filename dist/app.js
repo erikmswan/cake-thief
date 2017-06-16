@@ -71,8 +71,6 @@ function max_duffel_bag_value(cakeData) {
         return a < b;
     });
 
-    console.log('sorted cakes! ', weightedValuableCakes, '\n\n');
-
     // now that the data is prepared, fill the bag
 
     var _fill_the_bag = fill_the_bag(weightedValuableCakes, capacity),
