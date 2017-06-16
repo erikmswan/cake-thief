@@ -12,6 +12,9 @@ To install:
 
 - `git clone git@github.com:erikmswan/cake-thief.git`
 - `npm i`
+
+To run:
+
 - `npm run start`
 
 If you want to just build the app for some reason, use `npm run build` (or `npm run watch` to keep watching for changes). If you want to just run the app without building it, use `npm run exe`.
